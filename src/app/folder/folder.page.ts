@@ -9,10 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 export class FolderPage implements OnInit {
   public folder: string;
 
+  requestID: string = "";
+  nic: string = "";
+  title = "";
+  description: string = "";
+  attachments: any = []; // files url path array
+  files: File[] = [];
+  progress_bar: boolean = false;
+  username: string = localStorage.getItem("username");
+
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+
+  setRequest() {
+    return 1
   }
 
 }

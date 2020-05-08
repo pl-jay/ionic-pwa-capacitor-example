@@ -14,8 +14,171 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>New Request</ion-card-subtitle>
+        <ion-card-title>Create a Request</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <ion-row>
+
+            <ion-col size="12">
+          <mat-form-field class="full">
+            <mat-label>Request ID</mat-label>
+            <input
+              matInput
+              placeholder="Request ID"
+              [value]="requestID"
+              readonly
+              required
+            />
+          </mat-form-field>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col size="12">
+          <mat-form-field class="full">
+            <mat-label>NIC</mat-label>
+            <input matInput placeholder="NIC" [value]="nic" readonly required />
+          </mat-form-field>
+        </ion-col>
+        </ion-row>
+     
+        <ion-row> <ion-col size="12">
+          <mat-form-field class="full">
+            <mat-label>Topic</mat-label>
+            <input
+              matInput
+              placeholder="Topic of your request"
+              name="title"
+              [(ngModel)]="title"
+              maxlength="200"
+              required
+            />
+          </mat-form-field>
+        </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+          <mat-form-field class="full">
+            <mat-label>Request</mat-label>
+            <textarea class="text-area"
+              matInput
+              [(ngModel)]="description"
+              placeholder="Describe your requirement"
+              name="description"
+              maxlength="1000"
+              required
+            ></textarea>
+          </mat-form-field>
+          <mat-progress-bar
+            mode="indeterminate"
+            *ngIf="progress_bar"
+            style="margin-bottom: 2px; width: 85%;"
+          ></mat-progress-bar>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="title == '' || description == ''"
+            (click)="setRequest()"
+            style="width: 150px;"
+          >
+            Submit
+          </button>
+        </ion-col>
+        </ion-row>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+
+    <!-- <div>
+        <mat-card-title></mat-card-title>
+        <mat-divider></mat-divider>
+        <br>
+        <form>
+          <div class="row">
+            <div class="col">
+              <mat-form-field>
+                <mat-label>Request ID</mat-label>
+                <input matInput placeholder="Request ID" [value]="requestID" readonly required>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field>
+                <mat-label>NIC</mat-label>
+                <input matInput placeholder="NIC" [value]="nic" readonly required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full">
+                <mat-label>Topic</mat-label>
+                <input matInput placeholder="Topic of your request" name="title" [(ngModel)]="title" maxlength="200" required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full">
+                <mat-label>Request</mat-label>
+                <textarea matInput [(ngModel)]="description" placeholder="Describe your requirement" name="description" maxlength="1000" required></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+    
+            <div class="col">
+              <mat-progress-bar mode="indeterminate" *ngIf="progress_bar" style="margin-bottom:2px; width: 85%;"></mat-progress-bar>
+              
+            </div>
+          </div>
+          
+          <div class="row" style="margin-top: 15px;">
+            <div class="col">
+              <button mat-raised-button color="primary" [disabled]="title == '' || description == ''" (click)="setRequest()" style="width: 150px;">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-3 left-line">
+        <mat-card-title>My Tickets</mat-card-title>
+        <mat-divider></mat-divider>
+        
+      </div>
+      <div class="col-3 left-line">
+        <mat-card-title>My Tickets</mat-card-title>
+        <mat-divider></mat-divider>
+        
+      </div>
+      
+      <div class="col-3 left-line">
+        <mat-card-title>My Tickets</mat-card-title>
+        <mat-divider></mat-divider>
+        
+      </div>
+      
+      <div class="col-3 left-line">
+        <mat-card-title>My Tickets</mat-card-title>
+        <mat-divider></mat-divider>
+        
+      </div>
+      
+      <div class="col-3 left-line">
+        <mat-card-title>My Tickets</mat-card-title>
+        <mat-divider></mat-divider>
+        
+      </div>
+       -->
   </div>
 </ion-content>
